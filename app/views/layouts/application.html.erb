@@ -9,7 +9,14 @@
 <body>
   <div>
     <header>
-      <nav><%= link_to "Sign in with Twitter", "/auth/twitter" %></nav>
+      <nav>
+        <% if current_user %>
+          Hello, <%= current_user.name %>
+          <%= link_to "Sign out", signout_path %>
+        <% else %>
+          <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+        <% end %>
+      </nav>
       <% flash.each do |title, msg| %>
         <%= content_tag :div, msg, id: "flash_#{title}" %>
     <% end %>
