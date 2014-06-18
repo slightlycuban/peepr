@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Peepr</title>
+  <title>Petri Says</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div>
+    <header>
+      <nav><%= link_to "Sign in with Twitter", "/auth/twitter" %></nav>
+      <% flash.each do |title, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{title}" %>
+    <% end %>
 
 <%= yield %>
 
