@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["nickname"]
-      user.oauth_token = auth["extra"]["access_token"].consumer.key
-      user.oauth_secret = auth["extra"]["access_token"].consumer.secret
+      user.oauth_token = auth.credentials.token
+      user.oauth_secret = auth.credentials.secret
     end
   end
 end
