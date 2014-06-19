@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :tweets, dependent: :destroy
 
   def self.create_from_omniauth(auth)
     create! do |user|
