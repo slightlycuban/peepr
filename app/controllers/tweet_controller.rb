@@ -9,6 +9,7 @@ class TweetController < ApplicationController
   end
 
   def view
+    @tweet = current_user.tweets.find_by_twitter_id(params[:id])
   end
 
   def fetch

@@ -1,2 +1,8 @@
-<h1>Tweet#view</h1>
-<p>Find me in app/views/tweet/view.html.erb</p>
+<h3>Peek a tweet!</h3>
+<% unless @tweet.nil? %>
+  <p>You said:</p>
+  <blockquote><%= @tweet.content %></blockquote>
+  <p><%= time_ago_in_words(@tweet.tweeted_on) %> ago.</p>
+  <p class="debug">id: <%= @tweet.twitter_id %>
+<% end %>
+
