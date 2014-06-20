@@ -1,0 +1,8 @@
+<h2>Your Timeline</h2>
+<% if @tweets.any? %>
+  <h3>Tweets (<%= @tweets.count %>)</h3>
+  <ul class="tweets">
+    <%= render @tweets %>
+  </ul>
+  <%= will_paginate @tweets %>
+<% end %>
