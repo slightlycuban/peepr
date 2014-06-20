@@ -10,6 +10,15 @@ class TweetsController < ApplicationController
   end
 
   def create
+    @tweet = Tweet.new(params[:tweet])
+    t = current_user.client.update(@tweet.content)
+    if current_user.tweets.find_by_twitter_id(t.id).nil?
+      current_user.tweets.create({ content: t.text, twitter_id: t.id, tweeted_on: t.created_at })
+      notice = { notice: "Your tweet was posted!" }
+    else
+      notice = { notice: "Sorry, but can't post duplicate tweet :(" }
+    end
+    redirect_to tweets_url, notice
   end
 
   def show
