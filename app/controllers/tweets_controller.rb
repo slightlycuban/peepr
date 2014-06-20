@@ -1,20 +1,23 @@
-class TweetController < ApplicationController
+class TweetsController < ApplicationController
   before_filter :require_login
 
-  def all
+  def index
     @tweets = current_user.tweets.paginate(page: params[:page])
+  end
+
+  def new
+    @tweet = current_user.tweets.build()
   end
 
   def create
   end
 
-  def view
+  def show
     @tweet = current_user.tweets.find_by_twitter_id(params[:id])
   end
 
   def fetch
-    opts = current_user.tweets.any? ? {since_id: current_user.tweets.first} : {}
-    opts[:count] = 20
+    opts = { count: 20 }
 
     tweets_count = current_user.client.user.tweets_count
 
@@ -24,7 +27,8 @@ class TweetController < ApplicationController
 
       tweets.each do |t|
         peep = current_user.tweets.build({ content: t.text, twitter_id: t.id, tweeted_on: t.created_at })
-        peep.save
+        # TODO: find a way to not hit the DB (or Twitter) so much
+        peep.save if current_user.tweets.find_by_twitter_id(t.id).nil?
       end
     end
 

@@ -1,5 +1,5 @@
 <li>
   <span class="date">On <%= tweet.tweeted_on %> you tweeted:</span>
   <span class="content"><%= tweet.content %></span>
-  <%= link_to "more...", { controller: "tweet", action: "view", id: tweet.twitter_id } %>
+  <%= link_to "more...", { controller: "tweets", action: "show", id: tweet.twitter_id } %>
 </li>
