@@ -11,5 +11,7 @@ Peepr::Application.routes.draw do
 
   match "/auth/twitter/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", as: :signout
+  match "/update" => "tweet#fetch", as: :update
+  match "/tweets" => "tweet#all", as: :all
 
 end
