@@ -41,7 +41,7 @@ class TweetsController < ApplicationController
       end
     end
 
-    redirect_to all_url, notice: "Tweets upated"
+    redirect_to tweets_url, notice: "Tweets upated"
   end
 
   private
