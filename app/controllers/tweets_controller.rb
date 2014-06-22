@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
       current_user.tweets.create({ content: t.text, twitter_id: t.id, tweeted_on: t.created_at })
       notice = { notice: "Your tweet was posted!" }
     else
-      notice = { notice: "Sorry, but can't post duplicate tweet :(" }
+      notice = { alert: "Sorry, but can't post duplicate tweet :(" }
     end
     redirect_to tweets_url, notice
   end
@@ -47,6 +47,6 @@ class TweetsController < ApplicationController
   private
 
   def require_login
-    redirect_to root_url, notice: "Please sign in first" if current_user.nil?
+    redirect_to root_url, alert: "Please sign in first" if current_user.nil?
   end
 end

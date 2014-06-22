@@ -40,3 +40,9 @@ header {
     }
   }
 }
+
+#flash_notice, #flash_alert {
+  @extend .alert;
+}
+#flash_notice { @extend .alert-success; }
+#flash_alert { @extend .alert-danger; }
