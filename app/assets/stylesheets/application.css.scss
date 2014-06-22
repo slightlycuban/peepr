@@ -14,10 +14,18 @@
 
 @import "bootstrap";
 
+body, html { height: 100%; }
 body {
   padding-top: 70px; /* adjust for navbar-fixed-top */
 
-    > div { @extend .container; }
+    > div {
+      @extend .container;
+
+      min-height: 100%;
+      height: auto;
+      margin: 0 auto -60px;
+      padding: 0 0 60px;
+    }
 }
 
 header {
@@ -53,6 +61,18 @@ header {
       @extend .btn-primary;
       @extend .btn-lg;
     }
+  }
+}
+
+footer {
+  @extend .container;
+  height: 60px;
+
+  p {
+    @extend .text-muted;
+
+    margin: 20px 0;
+    text-align: center;
   }
 }
 
