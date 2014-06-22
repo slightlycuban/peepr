@@ -1,5 +1,7 @@
 <li>
-  <span class="date">On <%= tweet.tweeted_on %> you tweeted:</span>
-  <span class="content"><%= tweet.content %></span>
-  <%= link_to "more...", { controller: "tweets", action: "show", id: tweet.twitter_id } %>
+  <%= raw BlueCloth::new(tweet.content).to_html %>
+  <p>
+    <span class="date">on <%= tweet.tweeted_on.to_date.to_formatted_s(:long_ordinal) %></span>
+    <%= link_to "more...", { controller: "tweets", action: "show", id: tweet.twitter_id } %>
+  </p>
 </li>

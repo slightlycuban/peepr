@@ -5,6 +5,7 @@ gem 'rails', '3.2.18'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'will_paginate', '~> 3.0'
+gem 'bluecloth'
 
 # Boostrap, with the Rails 4 pipeline backport
 gem 'bootstrap-sass', '~> 3.1.1'

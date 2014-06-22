@@ -1,8 +1,10 @@
-<h3>Peek a tweet!</h3>
-<% unless @tweet.nil? %>
-  <p>You said:</p>
-  <blockquote><%= @tweet.content %></blockquote>
-  <p><%= time_ago_in_words(@tweet.tweeted_on) %> ago.</p>
-  <p class="debug">id: <%= @tweet.twitter_id %>
-<% end %>
+<section id="tweet">
+  <h3>Peek a tweet!</h3>
+  <% unless @tweet.nil? %>
+    <blockquote>
+      <%= raw BlueCloth::new(@tweet.content).to_html %>
+      <footer><cite>You</cite>, <%= time_ago_in_words(@tweet.tweeted_on) %> ago</footer>
+    </blockquote>
+  <% end %>
+</section>
 

@@ -64,7 +64,51 @@ header {
   }
 }
 
-footer {
+#tweets {
+  h4 {
+    span {
+      @extend .badge;
+      vertical-align: top;
+    }
+
+    a {
+      @extend .btn;
+      @extend .btn-success;
+      @extend .pull-right;
+      margin-top: -7px; /* counteract button padding for now */
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      border-left: 3px solid $gray-lighter;
+      padding-left: 4px;
+    }
+
+    .date {
+      @extend .text-muted;
+      font-style: oblique;
+    }
+  }
+
+  .pagination {
+    @extend .center-block;
+    text-align: center;
+  }
+
+}
+
+#tweet blockquote footer {
+  font-style: oblique;
+}
+
+section > h3 {
+  @extend .page-header;
+}
+
+body > footer {
   @extend .container;
   height: 60px;
 
