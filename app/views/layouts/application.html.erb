@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Petri Says</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -10,18 +10,28 @@
   <div>
     <header>
       <nav>
+        <div>
         <% if current_user %>
-          Hello, <%= current_user.name %>
-          <%= link_to "Sign out", signout_path %>
+          <p>Hello, <%= current_user.name %></p>
+          <ul>
+            <li><%= link_to "Your tweets", tweets_path %></li>
+            <li><%= link_to "Peep to Tweet!", new_tweet_path %></li>
+            <li><%= link_to "Sign out", signout_path %></li>
+          </ul>
         <% else %>
-          <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+          <ul>
+            <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>
+          </ul>
         <% end %>
+        </div>
       </nav>
       <% flash.each do |title, msg| %>
         <%= content_tag :div, msg, id: "flash_#{title}" %>
-    <% end %>
+      <% end %>
+    </header>
 
-<%= yield %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -11,3 +11,32 @@
  *= require_self
  *= require_tree .
  */
+
+@import "bootstrap";
+
+body {
+  padding-top: 70px; /* adjust for navbar-fixed-top */
+
+    > div { @extend .container; }
+}
+
+header {
+  nav {
+    @extend .navbar;
+    @extend .navbar-inverse;
+    @extend .navbar-default;
+    @extend .navbar-fixed-top;
+    color: white;
+
+    p {
+      @extend .pull-left;
+      padding: 10px 15px;
+    }
+
+    ul {
+      @extend .nav;
+      @extend .nav-pills;
+      @extend .pull-right;
+    }
+  }
+}
