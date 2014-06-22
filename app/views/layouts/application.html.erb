@@ -2,26 +2,37 @@
 <html lang="en">
 <head>
   <title>Petri Says</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div>
-    <header>
-      <nav>
-        <div>
-          <a class="navbar-brand" href="/">Petri Says</a>
-          <% if current_user %>
+    <nav>
+      <div>
+        <header>
+          <a href="/">Petri Says</a>
+          <button data-toggle="collapse" data-target="#links">
+            <span class="sr-only">Toggle links</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </header>
+        <% if current_user %>
+          <section id="links">
             <p>Hello, <%= current_user.name %></p>
             <ul>
               <li><%= link_to "Your tweets", tweets_path %></li>
               <li><%= link_to "Peep to Tweet!", new_tweet_path %></li>
               <li><%= link_to "Sign out", signout_path %></li>
             </ul>
-          <% end %>
-        </div>
-      </nav>
+            </section>
+        <% end %>
+      </div>
+    </nav>
+    <header>
       <% flash.each do |title, msg| %>
         <%= content_tag :div, msg, id: "flash_#{title}" %>
       <% end %>

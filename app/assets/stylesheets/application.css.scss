@@ -16,31 +16,43 @@
 
 body, html { height: 100%; }
 body {
-  padding-top: 70px; /* adjust for navbar-fixed-top */
+  padding-top: 50px; /* adjust for navbar-fixed-top */
+  @include gradient-vertical($brand-success, LemonChiffon);
+  background-attachment: fixed;
 
-    > div {
-      @extend .container;
+  > div {
+    @extend .container;
+    background: $body-bg;
 
-      min-height: 100%;
-      height: auto;
-      margin: 0 auto -60px;
-      padding: 0 0 60px;
-    }
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 10px 60px;
+  }
 }
 
-header {
-  nav {
-    @extend .navbar;
-    @extend .navbar-inverse;
-    @extend .navbar-fixed-top;
-    color: white;
+nav {
+  @extend .navbar;
+  @extend .navbar-inverse;
+  @extend .navbar-fixed-top;
 
-    > div { @extend .container; }
+  > div { @extend .container; }
 
-    p {
-      @extend .navbar-text;
-      @extend .navbar-left;
-    }
+  header {
+    @extend .navbar-header;
+
+    button { @extend .navbar-toggle; }
+    a { @extend .navbar-brand; }
+  }
+
+  p {
+    @extend .navbar-text;
+    @extend .navbar-left;
+  }
+
+  section {
+    @extend .collapse;
+    @extend .navbar-collapse;
 
     ul {
       @extend .nav;
@@ -52,6 +64,7 @@ header {
 
 #landing {
   @extend .jumbotron;
+  margin-top: 10px;
 
   .action-button {
     text-align: center;
