@@ -39,11 +39,19 @@ header {
       @extend .navbar-nav;
       @extend .navbar-right;
     }
+  }
+}
 
-    button {
+#landing {
+  @extend .jumbotron;
+
+  .action-button {
+    text-align: center;
+
+    a {
       @extend .btn;
-      @extend .btn-default;
-      @extend .navbar-btn;
+      @extend .btn-primary;
+      @extend .btn-lg;
     }
   }
 }

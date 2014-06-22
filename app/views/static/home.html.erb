@@ -1,2 +1,7 @@
-<h1>Petri Says</h1>
-<p>Peep tweets the petri way</p>
+<section id="landing">
+  <h1>Petri Says</h1>
+  <p>Peep at the world, just like a little bird!</p>
+  <% if current_user.nil? %>
+    <p class="action-button"><%= link_to "Sign in with Twitter to Start", "/auth/twitter" %></p>
+  <% end %>
+</section>
