@@ -11,18 +11,19 @@
     <header>
       <nav>
         <div>
-        <% if current_user %>
-          <p>Hello, <%= current_user.name %></p>
-          <ul>
-            <li><%= link_to "Your tweets", tweets_path %></li>
-            <li><%= link_to "Peep to Tweet!", new_tweet_path %></li>
-            <li><%= link_to "Sign out", signout_path %></li>
-          </ul>
-        <% else %>
-          <ul>
-            <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>
-          </ul>
-        <% end %>
+          <a class="navbar-brand" href="/">Petri Says</a>
+          <% if current_user %>
+            <p>Hello, <%= current_user.name %></p>
+            <ul>
+              <li><%= link_to "Your tweets", tweets_path %></li>
+              <li><%= link_to "Peep to Tweet!", new_tweet_path %></li>
+              <li><button><%= link_to "Sign out", signout_path %></button></li>
+            </ul>
+          <% else %>
+            <ul>
+              <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>
+            </ul>
+          <% end %>
         </div>
       </nav>
       <% flash.each do |title, msg| %>

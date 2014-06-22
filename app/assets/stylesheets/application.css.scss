@@ -24,19 +24,26 @@ header {
   nav {
     @extend .navbar;
     @extend .navbar-inverse;
-    @extend .navbar-default;
     @extend .navbar-fixed-top;
     color: white;
 
+    > div { @extend .container; }
+
     p {
-      @extend .pull-left;
-      padding: 10px 15px;
+      @extend .navbar-text;
+      @extend .navbar-left;
     }
 
     ul {
       @extend .nav;
-      @extend .nav-pills;
-      @extend .pull-right;
+      @extend .navbar-nav;
+      @extend .navbar-right;
+    }
+
+    button {
+      @extend .btn;
+      @extend .btn-default;
+      @extend .navbar-btn;
     }
   }
 }
