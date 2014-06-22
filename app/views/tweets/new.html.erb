@@ -1,5 +1,7 @@
-<h3>Peep to tweet!</h3>
-<%= form_for @tweet do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit "Tweet!" %>
-<% end %>
+<section id="peep">
+  <h3>Peep to tweet!</h3>
+  <%= form_for @tweet do |f| %>
+    <section><%= f.text_area :content, rows: 3 %></section>
+    <section><%= f.submit "Tweet!" %></section>
+  <% end %>
+</section>

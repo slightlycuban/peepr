@@ -104,6 +104,24 @@ header {
   font-style: oblique;
 }
 
+#peep {
+  form {
+    section {
+      @extend .form-group;
+    }
+
+    textarea {
+      @extend .form-control;
+    }
+
+    input[type="submit"] {
+      @extend .btn;
+      @extend .btn-success;
+      @extend .pull-right;
+    }
+  }
+}
+
 section > h3 {
   @extend .page-header;
 }
