@@ -78,17 +78,19 @@ nav {
 }
 
 #tweets {
-  h4 {
-    span {
-      @extend .badge;
-      vertical-align: top;
-    }
-
+  h3 {
     a {
       @extend .btn;
       @extend .btn-success;
       @extend .pull-right;
       margin-top: -7px; /* counteract button padding for now */
+    }
+  }
+
+  h4 {
+    span {
+      @extend .badge;
+      vertical-align: top;
     }
   }
 

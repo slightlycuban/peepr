@@ -1,7 +1,7 @@
 <section id="tweets">
-  <h3>Your Timeline</h3>
+  <h3>Your Timeline<%= link_to "Get Latest", update_path %></h3>
   <% if @tweets.any? %>
-    <h4>Tweets <span><%= @tweets.count %></span><%= link_to "Get Latest", update_path %></h4>
+    <h4>Tweets <span><%= @tweets.count %></span></h4>
     <ul id="tweets">
       <%= render @tweets %>
     </ul>
